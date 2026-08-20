@@ -1,7 +1,10 @@
-function Button({ text }) {
+function Button({ text, onClick }) {
   return (
-    <button className="bg-slate-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded text-center">
-     {text}
+    <button
+      onClick={onClick}
+      className="bg-slate-500 hover:bg-red-700 text-white font-bold text-sm py-1 px-14 rounded text-center"
+    >
+      {text}
     </button>
   )
 }
