@@ -9,6 +9,10 @@ function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // Pagination
+    const [halaman, setHalaman] = useState(1);
+    const itemPerHalaman = 6;
+
     // Ambil daftar kategori sekali saja saat komponen pertama kali dimuat
     useEffect(() => {
         fetch("https://fakestoreapi.com/products/categories")
@@ -44,9 +48,16 @@ function Home() {
             });
     }, [kategoriAktif]);
 
+    // Reset ke halaman 1 setiap kali kategori atau kata kunci berubah
+    useEffect(() => {
+        setHalaman(1);
+    }, [kategoriAktif, kataKunci]);
+
     const produkTersaring = produk.filter((p) =>
         p.title.toLowerCase().includes(kataKunci.toLowerCase())
     );
+
+    
 
     return (
         <div>
@@ -86,11 +97,43 @@ function Home() {
             )}
 
             {!loading && !error && (
-                <div className="produk-list">
-                    {produkTersaring.map((p) => (
-                        <ProdukCard key={p.id} produk={p} />
-                    ))}
-                </div>
+                <>
+                    {produkHalamanIni.length === 0 ? (
+                        <p className="text-center text-gray-500 mt-6">
+                            Produk tidak ditemukan.
+                        </p>
+                    ) : (
+                        <div className="produk-list">
+                            {produkHalamanIni.map((p) => (
+                                <ProdukCard key={p.id} produk={p} />
+                            ))}
+                        </div>
+                    )}
+
+                    {totalHalaman > 1 && (
+                        <div className="flex justify-center items-center gap-4 py-6">
+                            <button
+                                onClick={() => setHalaman((h) => Math.max(h - 1, 1))}
+                                disabled={halaman === 1}
+                                className="bg-slate-500 hover:bg-red-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold text-sm py-1 px-4 rounded"
+                            >
+                                Sebelumnya
+                            </button>
+
+                            <span className="text-sm text-gray-600">
+                                Halaman {halaman} dari {totalHalaman}
+                            </span>
+
+                            <button
+                                onClick={() => setHalaman((h) => Math.min(h + 1, totalHalaman))}
+                                disabled={halaman === totalHalaman}
+                                className="bg-slate-500 hover:bg-red-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold text-sm py-1 px-4 rounded"
+                            >
+                                Selanjutnya
+                            </button>
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );

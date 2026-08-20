@@ -14,7 +14,7 @@ function Keranjang() {
         <div className="border rounded-lg bg-white shadow p-8 text-center">
           <p className="text-gray-500 mb-4">Keranjang kamu masih kosong.</p>
           <Link to="/" className="text-blue-600 underline">
-            Yuk belanja dulu
+           belanja 
           </Link>
         </div>
       ) : (
