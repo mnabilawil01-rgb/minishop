@@ -57,7 +57,11 @@ function Home() {
         p.title.toLowerCase().includes(kataKunci.toLowerCase())
     );
 
-    
+    // Hitung produk yang ditampilkan di halaman saat ini
+    const totalHalaman = Math.ceil(produkTersaring.length / itemPerHalaman);
+    const indexAkhir = halaman * itemPerHalaman;
+    const indexAwal = indexAkhir - itemPerHalaman;
+    const produkHalamanIni = produkTersaring.slice(indexAwal, indexAkhir);
 
     return (
         <div>
