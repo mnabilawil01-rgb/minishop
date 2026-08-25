@@ -29,7 +29,7 @@ function Formlogin() {
     <div className="max-w-sm mx-auto p-6">
       <h1 className="text-xl font-bold mb-4 text-center">Login</h1>
 
-      <form onSubmit={handleSubmit} className="border rounded-lg bg-white shadow p-4 space-y-3">
+      <form onSubmit={handleSubmit} noValidate className="border rounded-lg bg-white shadow p-4 space-y-3">
         <input
           type="email"
           placeholder="Email"

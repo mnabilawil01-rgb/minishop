@@ -23,7 +23,7 @@ describe("FormLogin", () => {
     fireEvent.change(screen.getByPlaceholderText("Password"), {
       target: { value: "rahasia123" },
     });
-    fireEvent.click(screen.getByText("Login"));
+    fireEvent.click(screen.getByRole("button", { name: "Login" }));
 
     expect(screen.getByText("Email tidak valid")).toBeInTheDocument();
   });
@@ -36,7 +36,7 @@ describe("FormLogin", () => {
     fireEvent.change(screen.getByPlaceholderText("Password"), {
       target: { value: "123" },
     });
-    fireEvent.click(screen.getByText("Login"));
+    fireEvent.click(screen.getByRole("button", { name: "Login" }));
 
     expect(screen.getByText("Password minimal 6 karakter")).toBeInTheDocument();
   });
