@@ -3,7 +3,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage.js";
 
 const Keranjangcontext = createContext();
 
-export const Keranjangprovider = ({ children }) => {
+export const KeranjangProvider = ({ children }) => {
     const [item, setItem] = useLocalStorage("keranjang", []);
 
     function tambahkekeranjang(produk){

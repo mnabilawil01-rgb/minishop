@@ -41,9 +41,7 @@ function DetailProduk() {
 
     return (
       <div className="max-w-md mx-auto p-4">
-        <Link to="/" className="text-blue-600 underline text-sm">
-          &larr; Kembali
-        </Link>
+        
 
         <div className="border rounded-lg shadow p-4 mt-3 bg-white">
           <img
@@ -61,6 +59,9 @@ function DetailProduk() {
             <Button text="Tambahkan ke Keranjang" onClick={() => tambahkekeranjang(produk)} />
           </div>
         </div>
+        <Link to="/" className="text-blue-600 underline text-sm">
+          &larr; Kembali
+        </Link>
       </div>
     );
 }

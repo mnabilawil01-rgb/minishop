@@ -12,9 +12,9 @@ function Keranjang() {
 
       {isEmpty ? (
         <div className="border rounded-lg bg-white shadow p-8 text-center">
-          <p className="text-gray-500 mb-4">Keranjang kamu masih kosong.</p>
+          <p className="text-gray-500 mb-4">Keranjang  kosong.</p>
           <Link to="/" className="text-blue-600 underline">
-           belanja 
+           beranda 
           </Link>
         </div>
       ) : (
