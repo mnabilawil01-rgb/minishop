@@ -1,16 +1,16 @@
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
-import Home from './pages/home.jsx';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Detailproduk from './pages/Detailproduk.jsx';
-import Keranjang from './pages/Keranjang.jsx';
-import RiwayatPesanan from './pages/RiwayatPesanan.jsx';
-import FormLogin from './pages/Formlogin.jsx';
-import Formregis from './pages/Formregis.jsx';
-import Notfound from './pages/Notfound.jsx';
 import Layout from './components/Layout.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import Detailproduk from './pages/Detailproduk.jsx';
+import FormLogin from './pages/Formlogin.jsx';
+import Formregis from './pages/Formregis.jsx';
+import Home from './pages/home.jsx';
+import Notfound from './pages/Notfound.jsx';
+import RiwayatPesanan from './pages/RiwayatPesanan.jsx';
+
+const Keranjang = lazy(() => import('./pages/Keranjang.jsx'));
 
 function App() {
   return (
@@ -25,7 +25,9 @@ function App() {
             path="/keranjang"
             element={
               <ProtectedRoute>
-                <Keranjang />
+                <Suspense fallback={<p className="text-center mt-6">Memuat...</p>}>
+                  <Keranjang />
+                </Suspense>
               </ProtectedRoute>
             }
           />

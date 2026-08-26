@@ -1,6 +1,7 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import Button from './Button.jsx';
 import usekeranjang from '../context/Keranjangcontext.jsx';
+import Button from './Button.jsx';
 
 function ProdukCard({ produk }) {
   const { tambahkekeranjang } = usekeranjang();
@@ -28,4 +29,4 @@ function ProdukCard({ produk }) {
   );
 }
 
-export default ProdukCard;
+export default memo(ProdukCard);

@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/vitest';
 
-// Membuat tiruan localStorage agar bisa diakses oleh Vitest/Node
 const localStorageMock = (() => {
   let store = {};
   return {
@@ -17,5 +16,5 @@ const localStorageMock = (() => {
   };
 })();
 
-// Terapkan mock ke objek global
+
 global.localStorage = localStorageMock;
