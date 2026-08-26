@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProdukCard from "../components/produkcard.jsx";
 
 function Home() {
@@ -9,11 +9,9 @@ function Home() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Pagination
     const [halaman, setHalaman] = useState(1);
     const itemPerHalaman = 6;
 
-    // Ambil daftar kategori sekali saja saat komponen pertama kali dimuat
     useEffect(() => {
         fetch("https://fakestoreapi.com/products/categories")
             .then((res) => res.json())
@@ -21,7 +19,6 @@ function Home() {
             .catch((err) => console.error("Gagal memuat kategori:", err));
     }, []);
 
-    // Ambil produk setiap kali kategori aktif berubah
     useEffect(() => {
         setLoading(true);
         setError(null);
@@ -48,7 +45,6 @@ function Home() {
             });
     }, [kategoriAktif]);
 
-    // Reset ke halaman 1 setiap kali kategori atau kata kunci berubah
     useEffect(() => {
         setHalaman(1);
     }, [kategoriAktif, kataKunci]);
@@ -57,7 +53,6 @@ function Home() {
         p.title.toLowerCase().includes(kataKunci.toLowerCase())
     );
 
-    // Hitung produk yang ditampilkan di halaman saat ini
     const totalHalaman = Math.ceil(produkTersaring.length / itemPerHalaman);
     const indexAkhir = halaman * itemPerHalaman;
     const indexAwal = indexAkhir - itemPerHalaman;
