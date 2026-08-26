@@ -1,14 +1,15 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import usekeranjang from '../context/Keranjangcontext.jsx';
+import Badge from './Badge.jsx';
 import Button from './Button.jsx';
 
 function ProdukCard({ produk }) {
-  const { tambahkekeranjang } = usekeranjang();
-
   return (
     <section id="beranda">
       <div className="relative border rounded-lg p-4 shadow hover:shadow-lg transition produk-card">
+        <div className="absolute top-2 right-2">
+          <Badge text={produk.stok !== false ? 'Available' : 'Out of stock'} />
+        </div>
         <img
           src={produk.image}
           className="w-full h-40 object-contain rounded"
