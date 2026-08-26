@@ -22,7 +22,7 @@ describe("ProdukCard", () => {
     expect(screen.getByText("Kaos Polos")).toBeInTheDocument();
   });
 
-  it("harga udah dikonversi ke rupiah", () => {
+  it("hargadikonversi ke rupiah", () => {
     bungkusRender(barangContoh);
     expect(screen.getByText(/75\.000/)).toBeInTheDocument();
   });
