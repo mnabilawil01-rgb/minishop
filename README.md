@@ -1,16 +1,83 @@
-# React + Vite
+MiniShop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MiniShop adalah aplikasi web e-commerce sederhana yang dibangun dengan Next.js (React), mencakup sisi frontend (tampilan toko) dan backend (API routes) dalam satu proyek. Data produk dan pengguna saat ini disimpan dalam bentuk file JSON lokal (dummy data), sehingga cocok untuk keperluan belajar, prototipe, atau demo sebelum dihubungkan ke database sungguhan.
 
-Currently, two official plugins are available:
+Fitur
+Login & Register Pengguna Formulir login (Formlogin.jsx) dan registrasi (Formregis.jsx), dikelola melalui AuthContext dan dilindungi dengan ProtectedRoute untuk membatasi akses halaman tertentu hanya untuk pengguna yang sudah login.
+Katalog & Detail Produk Menampilkan daftar produk di halaman utama (home.jsx) menggunakan komponen produkcard.jsx, dengan halaman detail produk (Detailproduk.jsx).
+Keranjang Belanja Pengguna dapat menambahkan produk ke keranjang (Keranjang.jsx), dikelola melalui Keranjangcontext.jsx.
+Riwayat Pesanan Halaman RiwayatPesanan.jsx menampilkan daftar pesanan yang pernah dibuat pengguna.
+Halaman 404 Halaman Notfound.jsx ditampilkan ketika rute yang diakses tidak ditemukan.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Cara instalasi =
 
-## React Compiler
+Sebelum menginstal proyek ini, pastikan sudah terpasang:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-Node.js versi 18 ke atas
+-npm 
+-Git 
 
-## Expanding the ESLint configuration
+1.Clone repository
+bash
+   git clone https://github.com/username/minishop.git
+   cd minishop
+2.Install dependencies
+bash
+   npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+Menjalankan Proyek =
+
+1.Jalankan aplikasi web :
+
+bash
+npm run dev
+
+2.Aplikasi dapat diakses melalui browser di:
+
+http://localhost:3000
+
+
+
+ gambaran umum struktur folder proyek MiniShop :
+
+minishop/
+├── public/                        # Aset publik statis (favicon, dll)
+├── src/
+│   ├── assets/                    # Aset seperti gambar/ikon yang diimpor ke komponen
+│   ├── components/                # Komponen UI yang dapat digunakan ulang
+│   │   ├── Badge.jsx
+│   │   ├── Button.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── Layout.jsx
+│   │   ├── produkcard.jsx         # Kartu tampilan produk
+│   │   ├── produkcard.test.jsx    # Unit test untuk produkcard
+│   │   └── ProtectedRoute.jsx     # Pembatas akses rute untuk user yang belum login
+│   ├── context/                   # React Context untuk state global
+│   │   ├── AuthContext.jsx        # Context untuk autentikasi (login/register)
+│   │   ├── Keranjangcontext.jsx   # Context untuk keranjang belanja
+│   │   └── Keranjangcontext.test.jsx
+│   ├── data/
+│   │   └── produk.js              # Data produk statis (dummy)
+│   ├── hooks/
+│   │   └── useLocalStorage.js     # Custom hook untuk sinkronisasi state dengan localStorage
+│   ├── img/                       # Gambar tambahan
+│   ├── pages/                     # Halaman-halaman utama aplikasi
+│   │   ├── Detailproduk.jsx       # Halaman detail produk
+│   │   ├── Formlogin.jsx          # Halaman login
+│   │   ├── Formlogin.test.jsx
+│   │   ├── Formregis.jsx          # Halaman registrasi
+│   │   ├── home.jsx               # Halaman utama / katalog produk
+│   │   ├── Keranjang.jsx          # Halaman keranjang belanja
+│   │   ├── Notfound.jsx           # Halaman 404
+│   │   └── RiwayatPesanan.jsx     # Halaman riwayat pesanan
+│   ├── App.jsx                    # Komponen root aplikasi & routing
+│   ├── App.css
+│   ├── index.css
+│   ├── main.jsx                   # Entry point aplikasi React
+│   └── setupTests.js              # Konfigurasi awal untuk testing
+├── .gitignore
+├── eslint.config.js               # Konfigurasi ESLint
+├── index.html                     # Template HTML
+└── package.json
