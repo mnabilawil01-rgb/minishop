@@ -1,7 +1,6 @@
 MiniShop
 
-MiniShop adalah aplikasi web e-commerce sederhana yang dibangun dengan Next.js (React), mencakup sisi frontend (tampilan toko) dan backend (API routes) dalam satu proyek. Data produk dan pengguna saat ini disimpan dalam bentuk file JSON lokal (dummy data), sehingga cocok untuk keperluan belajar, prototipe, atau demo sebelum dihubungkan ke database sungguhan.
-
+MiniShop adalah aplikasi web e-commerce sederhana yang dibangun dengan Next.js (React).
 Fitur
 Login & Register Pengguna Formulir login (Formlogin.jsx) dan registrasi (Formregis.jsx), dikelola melalui AuthContext dan dilindungi dengan ProtectedRoute untuk membatasi akses halaman tertentu hanya untuk pengguna yang sudah login.
 Katalog & Detail Produk Menampilkan daftar produk di halaman utama (home.jsx) menggunakan komponen produkcard.jsx, dengan halaman detail produk (Detailproduk.jsx).
