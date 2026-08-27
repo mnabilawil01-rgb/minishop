@@ -42,41 +42,42 @@ http://localhost:3000
  gambaran umum struktur folder proyek MiniShop :
 
 minishop/
-├── public/                        # Aset publik statis (favicon, dll)
-├── src/
-│   ├── assets/                    # Aset seperti gambar/ikon yang diimpor ke komponen
-│   ├── components/                # Komponen UI yang dapat digunakan ulang
-│   │   ├── Badge.jsx
-│   │   ├── Button.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Header.jsx
-│   │   ├── Layout.jsx
-│   │   ├── produkcard.jsx         # Kartu tampilan produk
-│   │   ├── produkcard.test.jsx    # Unit test untuk produkcard
-│   │   └── ProtectedRoute.jsx     # Pembatas akses rute untuk user yang belum login
-│   ├── context/                   # React Context untuk state global
-│   │   ├── AuthContext.jsx        # Context untuk autentikasi (login/register)
-│   │   ├── Keranjangcontext.jsx   # Context untuk keranjang belanja
-│   │   └── Keranjangcontext.test.jsx
-│   ├── data/
-│   │   └── produk.js              # Data produk statis (dummy)
-│   ├── hooks/
-│   │   └── useLocalStorage.js     # Custom hook untuk sinkronisasi state dengan localStorage
-│   ├── img/                       # Gambar tambahan
-│   ├── pages/                     # Halaman-halaman utama aplikasi
-│   │   ├── Detailproduk.jsx       # Halaman detail produk
-│   │   ├── Formlogin.jsx          # Halaman login
-│   │   ├── Formlogin.test.jsx
-│   │   ├── Formregis.jsx          # Halaman registrasi
-│   │   ├── home.jsx               # Halaman utama / katalog produk
-│   │   ├── Keranjang.jsx          # Halaman keranjang belanja
-│   │   ├── Notfound.jsx           # Halaman 404
-│   │   └── RiwayatPesanan.jsx     # Halaman riwayat pesanan
-│   ├── App.jsx                    # Komponen root aplikasi & routing
-│   ├── App.css
-│   ├── index.css
-│   ├── main.jsx                   # Entry point aplikasi React
-│   └── setupTests.js              # Konfigurasi awal untuk testing
-├── .gitignore
-├── eslint.config.js               # Konfigurasi ESLint
-├── index.html                     # Template HTML utama (Vite)
+  public/
+  src/
+    assets/
+    components/
+      Badge.jsx
+      Button.jsx
+      Footer.jsx
+      Header.jsx
+      Layout.jsx
+      produkcard.jsx
+      produkcard.test.jsx
+      ProtectedRoute.jsx
+    context/
+      AuthContext.jsx
+      Keranjangcontext.jsx
+      Keranjangcontext.test.jsx
+    data/
+      produk.js
+    hooks/
+      useLocalStorage.js
+    img/
+    pages/
+      Detailproduk.jsx
+      Formlogin.jsx
+      Formlogin.test.jsx
+      Formregis.jsx
+      home.jsx
+      Keranjang.jsx
+      Notfound.jsx
+      RiwayatPesanan.jsx
+    App.jsx
+    App.css
+    index.css
+    main.jsx
+    setupTests.js
+  .gitignore
+  eslint.config.js
+  index.html
+  package.json
