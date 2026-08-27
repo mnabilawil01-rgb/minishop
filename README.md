@@ -79,5 +79,4 @@ minishop/
 │   └── setupTests.js              # Konfigurasi awal untuk testing
 ├── .gitignore
 ├── eslint.config.js               # Konfigurasi ESLint
-├── index.html                     # Template HTML
-└── package.json
+├── index.html                     # Template HTML utama (Vite)
