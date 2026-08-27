@@ -17,30 +17,34 @@ Sebelum menginstal proyek ini, pastikan sudah terpasang:
 -Git 
 
 1.Clone repository
-bash
+```bash
    git clone https://github.com/username/minishop.git
    cd minishop
+```
 2.Install dependencies
-bash
+```bash
    npm install
-
+```
 
 Menjalankan Proyek =
 
 1.Jalankan aplikasi web :
 
-bash
+```bash
 npm run dev
+```
 
 2.Aplikasi dapat diakses melalui browser di:
 
+```bash
 http://localhost:3000
+```
 
 
 
  gambaran umum struktur folder proyek MiniShop :
 
-minishop/
+```minishop/
   public/
   src/
     assets/
@@ -79,4 +83,4 @@ minishop/
   .gitignore
   eslint.config.js
   index.html
-  package.json
+  package.json```
